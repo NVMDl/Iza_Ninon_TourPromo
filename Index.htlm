@@ -20,6 +20,10 @@
     <section id="about" class="section about">
         <h2>The Story of Ninon & Iza</h2>
         <p>Meet Ninon, an engineer specializing in renewable energies, and Iza, a Master’s student in English language...</p>
+ <div class="gallery">
+            <img src="Concert_Iza_ninon.jpg" alt="Photo Iza et Ninon">
+            
+        </div>
     </section>
 
     <!-- Our Role Section -->
