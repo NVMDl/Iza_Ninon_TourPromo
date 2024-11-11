@@ -20,7 +20,7 @@
     <section id="about" class="section about">
         <h2>The Story of Ninon & Iza</h2>
         <p>Meet Ninon, an engineer specializing in renewable energies, and Iza, a Master’s student in English language...</p>
- <div class="gallery">
+        <div class="gallery">
             <img src="Concert_Iza_ninon.jpg" alt="Photo Iza et Ninon">
             
         </div>
@@ -46,7 +46,7 @@
     <section class="section contact">
         <h2>Be a Part of the Energy</h2>
         <p>Connect with us, feel the energy, and become one with the music.</p>
-        <form action="#" method="POST">
+        <form id="contactForm" action="#" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" required></textarea>
@@ -58,6 +58,27 @@
         <p>Brought to life by Ninon & Iza, in homage to Sleep Token and the devoted fans.</p>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let name = document.querySelector('input[name="name"]').value;
+            let email = document.querySelector('input[name="email"]').value;
+            let message = document.querySelector('textarea[name="message"]').value;
+
+            let content = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+
+            let blob = new Blob([content], { type: 'text/plain' });
+            let url = window.URL.createObjectURL(blob);
+            let a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'contact.txt';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        });
+    </script>
 </body>
 </html>
