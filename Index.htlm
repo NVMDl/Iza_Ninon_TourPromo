@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninon & Iza - Hype Masters</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Homepage Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to the Domain of Ninon & Iza</h1>
+            <p>Where energy and devotion converge to ignite every Sleep Token show with unparalleled fervor.</p>
+            <a href="#about" class="button">Enter the Domain</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section about">
+        <h2>The Story of Ninon & Iza</h2>
+        <p>Meet Ninon, an engineer specializing in renewable energies, and Iza, a Master’s student in English language...</p>
+    </section>
+
+    <!-- Our Role Section -->
+    <section class="section role">
+        <h2>Amplifying the Energy</h2>
+        <p>With a synergy rooted in passion and skill, Ninon and Iza transform the atmosphere...</p>
+        <div class="gallery">
+            <img src="concert1.jpg" alt="Concert photo 1">
+            <img src="concert2.jpg" alt="Concert photo 2">
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <h2>Echoes from the Crowd</h2>
+        <p>"They make you feel like you’re part of something much bigger."</p>
+    </section>
+
+    <!-- Join Us Section -->
+    <section class="section contact">
+        <h2>Be a Part of the Energy</h2>
+        <p>Connect with us, feel the energy, and become one with the music.</p>
+        <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Brought to life by Ninon & Iza, in homage to Sleep Token and the devoted fans.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
