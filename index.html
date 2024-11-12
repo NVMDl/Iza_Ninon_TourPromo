@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ninon & Iza - Hype Masters</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialisation de EmailJS avec l'ID utilisateur
+        emailjs.init("3cQB_j5KuXvFsmU1g");
+    </script>
 </head>
 <body>
     <!-- Homepage Section -->
@@ -22,7 +28,6 @@
         <p>Meet Ninon, an engineer specializing in renewable energies, and Iza, a Master’s student in English language...</p>
         <div class="gallery">
             <img src="Concert_Iza_ninon.jpg" alt="Photo Iza et Ninon">
-            
         </div>
     </section>
 
@@ -62,23 +67,27 @@
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
+            // Récupération des valeurs du formulaire
             let name = document.querySelector('input[name="name"]').value;
             let email = document.querySelector('input[name="email"]').value;
             let message = document.querySelector('textarea[name="message"]').value;
 
-            let content = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
-
-            let blob = new Blob([content], { type: 'text/plain' });
-            let url = window.URL.createObjectURL(blob);
-            let a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            a.download = 'contact.txt';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
+            // Envoi des données avec EmailJS
+            emailjs.send("default_service", "Template_mail1", {
+                name: name,
+                email: email,
+                message: message
+            })
+            .then(function(response) {
+                alert("Message sent successfully!"); // Message de confirmation
+                console.log("Success!", response.status, response.text);
+                document.getElementById('contactForm').reset(); // Réinitialiser le formulaire
+            }, function(error) {
+                alert("Failed to send message. Please try again."); // Message en cas d'erreur
+                console.log("Failed...", error);
+            });
         });
     </script>
 </body>
 </html>
+
